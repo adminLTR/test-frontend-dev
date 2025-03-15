@@ -11,7 +11,7 @@ export default function LoginPage() {
     setError(""); 
 
     try {
-      const response = await fetch("https://tu-api.com/api/login", {
+      const response = await fetch("http://127.0.0.1:5000/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
@@ -25,15 +25,15 @@ export default function LoginPage() {
       localStorage.setItem("jwt", jwt); // Guardar token
 
       // Redirigir (ajusta la ruta según tu proyecto)
-      window.location.href = "/dashboard";
+      alert("LOGIN CORRECTO")
     } catch (err) {
       setError(err.message);
     }
   };
 
   return (
-    <Container fluid className="min-vh-100 d-flex align-items-center justify-content-center bg-primary">
-      <Row className="w-100 shadow-lg rounded overflow-hidden" style={{ maxWidth: 900 }}>
+    <Container fluid className="min-vh-100 d-flex align-items-center justify-content-center">
+      <Row className="w-100 shadow-lg rounded overflow-hidden bg-white" style={{ maxWidth: 900 }}>
         <Col md={6} className="p-0 d-none d-md-block">
           <img
             src="/login-img.png"
@@ -43,7 +43,7 @@ export default function LoginPage() {
         </Col>
 
         <Col md={6} className="bg-white p-5 d-flex flex-column justify-content-center">
-          <h3 className="text-center mb-4">Iniciar Sesión</h3>
+          <h3 className="text-center mb-4 text-primary">Iniciar Sesión</h3>
 
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="username">

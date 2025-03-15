@@ -1,8 +1,17 @@
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
+// @import "bootstrap/scss/functions";
+// @import "bootstrap/scss/variables";
 
-// Sobreescribir el color primario
-$primary: #fed362;
+// // Sobreescribir el color primario
+// $primary: #fed362;
 
-// Generar la paleta con el nuevo color
-@import "bootstrap/scss/bootstrap";
+// // Generar la paleta con el nuevo color
+// @import "bootstrap/scss/bootstrap";
+
+// change the theme
+$theme-colors: (
+  "primary": #f9c237,
+  "danger": #ff4136
+);
+
+// Import Bootstrap and its default variables
+@import '../../node_modules/bootstrap/scss/bootstrap';
