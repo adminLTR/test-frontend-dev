@@ -1,35 +1,52 @@
 import { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { loginUser } from "../js/api";
+import { useAuth } from '../context/AuthContext';
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  const { logout } = useAuth();
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setError(""); 
+
+  //   try {
+  //     const response = await fetch("http://127.0.0.1:5000/login", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({ username, password }),
+  //     });
+
+  //     if (!response.ok) throw new Error("Usuario o contraseña incorrectos");
+
+  //     const data = await response.json();
+  //     const jwt = data.token;
+
+  //     localStorage.setItem("jwt", jwt); // Guardar token
+
+  //     // Redirigir (ajusta la ruta según tu proyecto)
+  //     alert("LOGIN CORRECTO")
+  //   } catch (err) {
+  //     setError(err.message);
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); 
 
-    try {
-      const response = await fetch("http://127.0.0.1:5000/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      });
-
-      if (!response.ok) throw new Error("Usuario o contraseña incorrectos");
-
-      const data = await response.json();
-      const jwt = data.token;
-
-      localStorage.setItem("jwt", jwt); // Guardar token
-
-      // Redirigir (ajusta la ruta según tu proyecto)
-      alert("LOGIN CORRECTO")
-    } catch (err) {
-      setError(err.message);
+    const res = (await loginUser(username, password));
+    
+    if (res.status !== 200) {
+      alert("CREDENCIALES INCORRECTAS")
+    } else {
+      loginUser(res.data.access_token)
+      window.location.href = "/dashboard";
     }
-  };
+  }
 
   return (
     <Container fluid className="min-vh-100 d-flex align-items-center justify-content-center">
