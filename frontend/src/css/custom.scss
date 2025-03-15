@@ -1,0 +1,8 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+
+// Sobreescribir el color primario
+$primary: #fed362;
+
+// Generar la paleta con el nuevo color
+@import "bootstrap/scss/bootstrap";
