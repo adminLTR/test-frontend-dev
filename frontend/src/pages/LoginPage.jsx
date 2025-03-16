@@ -24,7 +24,8 @@ export default function LoginPage() {
         text: "Credenciales incorrectas",
         icon: "error"
       })
-      
+      setUsername("");
+      setPassword("");
     }
 
   }
@@ -69,7 +70,7 @@ export default function LoginPage() {
             <Button variant="primary" type="submit" className="w-100">
               Ingresar
             </Button>
-            <Button type="submit" className="w-100 link-primary bg-white border-0">
+            <Button type="button" className="w-100 link-primary bg-white border-0">
               ¿No tienes cuenta? Crear cuenta
             </Button>
           </Form>
