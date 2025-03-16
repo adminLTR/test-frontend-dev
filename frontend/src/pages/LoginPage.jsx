@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 import { loginUser } from "../js/api";
 
 export default function LoginPage() {
@@ -12,15 +14,19 @@ export default function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = (await loginUser(username, password));
-    
-    if (res.status !== 200) {
-      alert("CREDENCIALES INCORRECTAS")
-    } else {
-      loginUser(res.data.access_token)
+    try {
+      const res = (await loginUser(username, password));      
       localStorage.setItem('token', res.data.access_token);
       window.location.href = "/curso";
+    } catch (error) {
+      withReactContent(Swal).fire({
+        title: "Error al logearse",
+        text: "Credenciales incorrectas",
+        icon: "error"
+      })
+      
     }
+
   }
 
   return (
