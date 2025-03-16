@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getModulos } from "../js/api";
+import Module from "../components/Module";
 import {
     Container,
     Row,
@@ -71,27 +72,13 @@ export default function CursoPage() {
           <Card className="h-100 shadow">
             <Card.Header>Módulos y Clases</Card.Header>
             <Card.Body className="overflow-auto" style={{ maxHeight: "80vh" }}>
-              {modulos.map((modulo, idx) => (
-                <div key={idx} className="mb-4">
-                  <h6>{modulo.titulo}</h6>
-                  <p className="small text-muted">{modulo.descripcion}</p>
-                  <ListGroup>
-                    {modulo.clases.map((clase, claseIdx) => (
-                      <ListGroup.Item
-                        key={claseIdx}
-                        action
-                        active={claseActual.titulo === clase.titulo}
-                        onClick={() => setClaseActual(clase)}
-                        className="d-flex justify-content-between align-items-center"
-                      >
-                        {clase.titulo}
-                        <Badge bg={clase.completado ? "success" : "secondary"}>
-                          {clase.completado ? "✓" : "•"}
-                        </Badge>
-                      </ListGroup.Item>
-                    ))}
-                  </ListGroup>
-                </div>
+              {modulos.map((modulo, i) => (
+                <Module 
+                modulo={modulo} 
+                claseActual={claseActual} 
+                setClaseActual={setClaseActual}
+                key={i}
+                />
               ))}
             </Card.Body>
           </Card>
@@ -104,30 +91,13 @@ export default function CursoPage() {
           <Offcanvas.Title>Módulos y Clases</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          {modulos.map((modulo, idx) => (
-            <div key={idx} className="mb-4">
-              <h6>{modulo.titulo}</h6>
-              <p className="small text-muted">{modulo.descripcion}</p>
-              <ListGroup>
-                {modulo.clases.map((clase, claseIdx) => (
-                  <ListGroup.Item
-                    key={claseIdx}
-                    action
-                    active={claseActual.titulo === clase.titulo}
-                    onClick={() => {
-                      setClaseActual(clase);
-                      handleClose(); // Cierra el Offcanvas al seleccionar
-                    }}
-                    className="d-flex justify-content-between align-items-center"
-                  >
-                    {clase.titulo}
-                    <Badge bg={clase.completado ? "success" : "secondary"}>
-                      {clase.completado ? "✓" : "•"}
-                    </Badge>
-                  </ListGroup.Item>
-                ))}
-              </ListGroup>
-            </div>
+          {modulos.map((modulo, i) => (
+            <Module 
+            modulo={modulo} 
+            claseActual={claseActual} 
+            setClaseActual={setClaseActual}
+            key={i}
+            />
           ))}
         </Offcanvas.Body>
       </Offcanvas>
