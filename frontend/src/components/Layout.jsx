@@ -1,6 +1,6 @@
-import { Container, Navbar, Nav, Dropdown, Image, Badge } from "react-bootstrap";
+import { Container, Navbar, Nav, Dropdown, Image, Badge, Row, Col } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
-import { BellFill } from "react-bootstrap-icons"; 
+import { BellFill, Facebook, Instagram, Twitter, Linkedin } from "react-bootstrap-icons"; 
 
 export default function Layout() {
     const handleLogout = (e) => {
@@ -10,8 +10,8 @@ export default function Layout() {
     }
   return (
     <Container fluid className="h-100 d-flex flex-column p-0">
-      <header className="w-100 position-sticky top-0 left-0 z-1">
-        <Navbar bg="primary" expand="lg" className="shadow-sm px-5">
+      <header className="w-100">
+        <Navbar bg="primary" className="shadow-sm px-5">
           <Container fluid>
             <Navbar.Brand href="/">
               <img
@@ -68,6 +68,61 @@ export default function Layout() {
       <main className="flex-grow-1">
         <Outlet />
       </main>
+
+      <footer className="bg-black text-white py-4 mt-auto">
+        <Container>
+            <Row className="align-items-center">
+                <Col md={4} className="text-center text-md-start mb-3 mb-md-0">
+                    <h5 className="mb-3">Síguenos</h5>
+                    <div className="d-flex justify-content-center justify-content-md-start gap-3">
+                    <a href="#" className="text-white">
+                        <Facebook size={24} />
+                    </a>
+                    <a href="#" className="text-white">
+                        <Instagram size={24} />
+                    </a>
+                    <a href="#" className="text-white">
+                        <Twitter size={24} />
+                    </a>
+                    <a href="#" className="text-white">
+                        <Linkedin size={24} />
+                    </a>
+                    </div>
+                </Col>
+
+                <Col md={4} className="text-center mb-3 mb-md-0">
+                    <h6>"El conocimiento es poder, y aquí está al alcance de todos."</h6>
+                    <p className="small mb-0">© {new Date().getFullYear()} ParisCorp. Todos los derechos reservados.</p>
+                </Col>
+
+                <Col md={4} className="text-center text-md-end">
+                    <h5 className="mb-3">Explora</h5>
+                    <ul className="list-unstyled">
+                    <li>
+                        <a href="#" className="text-white text-decoration-none">
+                        Cursos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" className="text-white text-decoration-none">
+                        Contacto
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" className="text-white text-decoration-none">
+                        Soporte
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" className="text-white text-decoration-none">
+                        Términos y Condiciones
+                        </a>
+                    </li>
+                    </ul>
+                </Col>
+            </Row>
+        </Container>
+        </footer>
     </Container>
   );
 }

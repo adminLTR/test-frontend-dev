@@ -80,10 +80,10 @@ export default function CursoPage() {
         </Col>
       </Row>
 
-      {/* Offcanvas para móviles */}
+      {/* Offcanvas */}
       <Offcanvas show={show} onHide={handleClose} placement="end" className="h-100 border-0 bg-dark">
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title className="text-white bg-warning text-center fs-3 mb-4 fw-bold">
+          <Offcanvas.Title className="text-white text-center fs-3 mb-4 fw-bold">
             Módulos y Clases
           </Offcanvas.Title>
         </Offcanvas.Header>
