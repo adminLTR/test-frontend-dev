@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import axios from "axios";
 import { getModulos } from "../js/api";
 import {
     Container,
@@ -61,14 +60,13 @@ export default function CursoPage() {
           )}
         </Col>
 
-        {/* Botón de Offcanvas (solo visible en móviles) */}
         <Col xs={12} className="d-md-none mb-3 text-center">
           <Button variant="primary" onClick={handleShow}>
             Ver Módulos y Clases
           </Button>
         </Col>
 
-        {/* Sidebar (Visible en md+ y Offcanvas en xs) */}
+        {/* Sidebar */}
         <Col md={3} className="d-none d-md-block">
           <Card className="h-100 shadow">
             <Card.Header>Módulos y Clases</Card.Header>
