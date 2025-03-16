@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
-import CursoPage from "./pages/CursoPage";
+import CursoPage, {loader as loaderCurso} from "./pages/CursoPage";
 
 const router = createBrowserRouter([
     {
@@ -9,7 +9,8 @@ const router = createBrowserRouter([
     },
     {
         path: '/curso',
-        element: <CursoPage/>
+        element: <CursoPage/>,
+        loader: loaderCurso,
     }
 ]);
 

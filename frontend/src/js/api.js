@@ -6,3 +6,11 @@ export function loginUser(username, password) {
         {username, password}
     )
 }
+
+export function getModulos(token) {
+    return axios.get(SERVER_URL + "/api/modulos", {
+        headers: {
+            Authorization: "Bearer " + token
+        }
+    });
+}

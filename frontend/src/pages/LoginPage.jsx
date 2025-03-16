@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { loginUser } from "../js/api";
-import { useAuth } from '../context/AuthContext';
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const { login } = useAuth();
 
 
   const handleSubmit = async (e) => {
@@ -20,7 +18,7 @@ export default function LoginPage() {
       alert("CREDENCIALES INCORRECTAS")
     } else {
       loginUser(res.data.access_token)
-      login(res.data.access_token);
+      localStorage.setItem('token', res.data.access_token);
       window.location.href = "/curso";
     }
   }
