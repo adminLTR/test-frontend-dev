@@ -1,6 +1,5 @@
 import {
     ListGroup,
-    Badge,
     Accordion,
   } from "react-bootstrap";
 

@@ -17,7 +17,7 @@ export default function LoginPage() {
     try {
       const res = (await loginUser(username, password));      
       localStorage.setItem('token', res.data.access_token);
-      window.location.href = "/curso";
+      window.location.href = "/";
     } catch (error) {
       withReactContent(Swal).fire({
         title: "Error al logearse",

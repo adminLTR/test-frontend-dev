@@ -8,7 +8,6 @@ import {
     Col,
     Button,
     Offcanvas,
-    ListGroup,
     Badge,
     Card,
   } from "react-bootstrap";
@@ -21,7 +20,7 @@ export async function loader() {
       const modulos = await getModulos(token);      
       return modulos.data;    
     } catch (error) {
-      window.location.href = '/'
+      window.location.href = '/login'
       return null      
     }
 }

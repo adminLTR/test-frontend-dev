@@ -1,16 +1,23 @@
 import { createBrowserRouter } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import CursoPage, {loader as loaderCurso} from "./pages/CursoPage";
+import Layout from "./components/Layout";
 
 const router = createBrowserRouter([
     {
-        path: '/',
+        path: '/login',
         element: <LoginPage/>,
     },
     {
-        path: '/curso',
-        element: <CursoPage/>,
-        loader: loaderCurso,
+        path: '/',
+        element: <Layout/>,
+        children: [
+            {
+                element: <CursoPage/>,
+                loader: loaderCurso,
+                index: true
+            }
+        ]
     }
 ]);
 
