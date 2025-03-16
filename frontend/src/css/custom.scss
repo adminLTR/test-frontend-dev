@@ -1,5 +1,11 @@
 
 $primary: #f9c237;
+$info: #525252;
+$warning: #111214;
+
+$accordion-bg: $primary;
+$accordion-button-active-bg: $primary;
+
 // Import Bootstrap and its default variables
 @import "../../node_modules/bootstrap/scss/bootstrap";
 // @import "~bootstrap/scss/bootstrap";

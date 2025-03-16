@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getModulos } from "../js/api";
 import Module from "../components/Module";
@@ -16,32 +16,40 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export async function loader() {
-    const modulos = await getModulos(localStorage.getItem("token"));
-    return modulos.data;
+    const token = localStorage.getItem("token");
+    try {
+      const modulos = await getModulos(token);      
+      return modulos.data;    
+    } catch (error) {
+      window.location.href = '/'
+      return null      
+    }
 }
 
 export default function CursoPage() {
   const modulos = useLoaderData();
-  const [claseActual, setClaseActual] = useState(modulos[0].clases[0]);
+  const [claseActual, setClaseActual] = useState( modulos[0].clases[0]);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  
   return (
-    <Container fluid className="py-3">
-      <Row>
+    <Container fluid className="h-100 bg-info">
+      <Row className="h-100">
         {/* Video Principal */}
-        <Col xs={12} md={9} className="mb-4">
+        <Col xs={12} lg={8} className="mb-4 p-0">
           {claseActual ? (
-            <Card className="shadow">
+            <Card className="border-0 bg-info">
               <Card.Body>
-                <Card.Title>{claseActual.titulo}</Card.Title>
-                <Card.Text>{claseActual.descripcion}</Card.Text>
+                <Card.Title className="text-primary text-center fw-bold fs-2">
+                  {claseActual.titulo}
+                </Card.Title>
+                <Card.Text className="text-center text-white">{claseActual.descripcion}</Card.Text>
                 <div className="ratio ratio-16x9 mb-3">
                   <video src={claseActual.video} controls className="rounded" />
                 </div>
-                <p>
+                {/* <p>
                   <strong>Duración:</strong> {claseActual.duracion}
                 </p>
                 <p>
@@ -53,7 +61,7 @@ export default function CursoPage() {
                       Pendiente
                     </Badge>
                   )}
-                </p>
+                </p> */}
               </Card.Body>
             </Card>
           ) : (
@@ -61,23 +69,24 @@ export default function CursoPage() {
           )}
         </Col>
 
-        <Col xs={12} className="d-md-none mb-3 text-center">
+        <Col xs={12} className="d-lg-none mb-3 text-center">
           <Button variant="primary" onClick={handleShow}>
             Ver Módulos y Clases
           </Button>
         </Col>
 
         {/* Sidebar */}
-        <Col md={3} className="d-none d-md-block">
-          <Card className="h-100 shadow">
-            <Card.Header>Módulos y Clases</Card.Header>
-            <Card.Body className="overflow-auto" style={{ maxHeight: "80vh" }}>
+        <Col lg={4} className="d-none d-lg-block p-0">
+          <Card className="h-100 border-0 bg-dark">
+            <Card.Header className="text-white bg-warning text-center fs-3 mb-4 fw-bold">Módulos y Clases</Card.Header>
+            <Card.Body className="overflow-auto text-white" style={{ maxHeight: "80vh" }}>
               {modulos.map((modulo, i) => (
                 <Module 
                 modulo={modulo} 
                 claseActual={claseActual} 
                 setClaseActual={setClaseActual}
                 key={i}
+                index={i}
                 />
               ))}
             </Card.Body>
@@ -88,7 +97,7 @@ export default function CursoPage() {
       {/* Offcanvas para móviles */}
       <Offcanvas show={show} onHide={handleClose} placement="end">
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Módulos y Clases</Offcanvas.Title>
+          <Offcanvas.Title className="bg-info">Módulos y Clases</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           {modulos.map((modulo, i) => (
@@ -97,6 +106,7 @@ export default function CursoPage() {
             claseActual={claseActual} 
             setClaseActual={setClaseActual}
             key={i}
+            index={i}
             />
           ))}
         </Offcanvas.Body>

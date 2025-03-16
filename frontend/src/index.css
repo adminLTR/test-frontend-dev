@@ -1,5 +1,3 @@
-:root {
-    --bs-primary: #fed362;
-    --bs-primary-rgb: rgb(254, 211, 98);
+html, body, #root {
+    height: 100%;
 }
-
