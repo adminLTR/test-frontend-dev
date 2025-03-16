@@ -49,23 +49,10 @@ export default function CursoPage() {
                 <div className="ratio ratio-16x9 mb-3">
                   <video src={claseActual.video} controls className="rounded" />
                 </div>
-                {/* <p>
-                  <strong>Duración:</strong> {claseActual.duracion}
-                </p>
-                <p>
-                  <strong>Estado:</strong>{" "}
-                  {claseActual.completado ? (
-                    <Badge bg="success">Completado</Badge>
-                  ) : (
-                    <Badge bg="warning" text="dark">
-                      Pendiente
-                    </Badge>
-                  )}
-                </p> */}
               </Card.Body>
             </Card>
           ) : (
-            <p>Cargando clase...</p>
+            <p className="text-white">Cargando clase...</p>
           )}
         </Col>
 
@@ -95,9 +82,11 @@ export default function CursoPage() {
       </Row>
 
       {/* Offcanvas para móviles */}
-      <Offcanvas show={show} onHide={handleClose} placement="end">
+      <Offcanvas show={show} onHide={handleClose} placement="end" className="h-100 border-0 bg-dark">
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title className="bg-info">Módulos y Clases</Offcanvas.Title>
+          <Offcanvas.Title className="text-white bg-warning text-center fs-3 mb-4 fw-bold">
+            Módulos y Clases
+          </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           {modulos.map((modulo, i) => (
