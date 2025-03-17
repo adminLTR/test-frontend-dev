@@ -30,15 +30,22 @@ export async function loader() {
 
 export default function CursoPage() {
   const modulos = useLoaderData();
-  const [claseActual, setClaseActual] = useState(modulos[0].clases[0]);
-  const [moduloActual, setModuloActual] = useState(modulos[0]);
+  const [claseActual, setClaseActual] = useState(null);
+  const [moduloActual, setModuloActual] = useState(null);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  useEffect(() => {
+    if (modulos) {
+      setClaseActual(modulos[0].clases[0]);
+      setModuloActual(modulos[0])
+    }
+  }, [modulos])
+
   return (
-    <Container fluid className="h-100 bg-white page-container">
+    (claseActual && <Container fluid className="h-100 bg-white page-container">
       <Row>
         {/* Video Principal */}
         <Col xs={12} lg={8} xl={9} className="mb-4 p-0">
@@ -131,6 +138,6 @@ export default function CursoPage() {
           ))}
         </Offcanvas.Body>
       </Offcanvas>
-    </Container>
+    </Container>)    
   );
 }
