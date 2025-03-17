@@ -40,7 +40,7 @@ export default function CursoPage() {
   
   return (
     <Container fluid className="h-100 bg-white">
-      <Row className="h-100">
+      <Row className="">
         {/* Video Principal */}
         <Col xs={12} lg={8} xl={9} className="mb-4 p-0">
           {claseActual ? (
@@ -61,27 +61,21 @@ export default function CursoPage() {
                 <p>
                   {claseActual.descripcion}
                 </p>
-                <div className="comment-sect">
-                  <p className="fs-4 fw-bold">Comentar</p>
-                  <InputComment/>
-                </div>
-                <div className="comments-sect">
-                  {comments.map(comment => <Comment comment={comment}/>)}
-                </div>
               </Card.Body>
             </Card>
           ) : (
             <p className="text-white">Cargando clase...</p>
           )}
         </Col>
-
         <Col xs={12} className="d-lg-none mb-3 text-center">
           <Button variant="primary" onClick={handleShow}>
             Ver Módulos y Clases
           </Button>
         </Col>
 
-        {/* Sidebar */}
+        
+        
+
         <Col lg={4} xl={3} className="d-none d-lg-block p-0">
           <Card className="h-100 border-0 bg-white rounded-0">
             <Card.Header className="text-primary bg-white fs-3 mb-4 fw-bold">
@@ -102,7 +96,15 @@ export default function CursoPage() {
           </Card>
         </Col>
       </Row>
-
+      <Row className="p-2">        
+          <div className="comment-sect">
+            <p className="fs-4 fw-bold">Comentar</p>
+            <InputComment/>
+          </div>
+          <div className="comments-sect">
+            {comments.map((comment, i) => <Comment key={i} comment={comment}/>)}
+          </div>
+      </Row>        
       {/* Offcanvas */}
       <Offcanvas show={show} onHide={handleClose} placement="end" className="h-100 border-0 bg-white">
         <Offcanvas.Header closeButton>

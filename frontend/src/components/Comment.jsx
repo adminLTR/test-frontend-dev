@@ -2,15 +2,7 @@ import React from "react";
 import { Card, Image, Row, Col, Button, Badge } from "react-bootstrap";
 import { HandThumbsUp, ChatDots } from "react-bootstrap-icons";
 
-export default function Comment({ 
-//   avatar, 
-//   username, 
-//   timeAgo, 
-//   commentText, 
-//   likes, 
-//   replies 
-    comment,
-}) {
+export default function Comment({comment}) {
   return (
     <Card className="mb-3 shadow-sm">
       <Card.Body>
