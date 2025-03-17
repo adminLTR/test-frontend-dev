@@ -1,0 +1,70 @@
+/* Fade-in effect for the whole page */
+.fade-in {
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  /* Zoom-in effect for the login box */
+  .zoom-in {
+    animation: zoomIn 0.8s ease-in-out;
+  }
+  
+  /* Slide-in for the title */
+  .slide-in-top {
+    animation: slideInTop 1s ease-out;
+  }
+  
+  /* Smooth transition on inputs */
+  .input-animated {
+    transition: all 0.3s ease;
+    border: 2px solid #ced4da;
+  }
+  
+  .input-animated:focus {
+    border-color: #4DBDEB;
+    box-shadow: 0 0 0 0.2rem rgba(77, 189, 235, 0.25);
+  }
+  
+  /* Button hover animation */
+  .btn-animated {
+    transition: all 0.3s ease;
+  }
+  
+  .btn-animated:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Fade in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Zoom in animation */
+  @keyframes zoomIn {
+    from {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Slide in from top */
+  @keyframes slideInTop {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
