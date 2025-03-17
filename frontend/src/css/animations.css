@@ -33,6 +33,96 @@
     transform: translateY(-3px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   }
+
+  /* Animación general de aparición */
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Contenedor principal que aparece al cargar */
+  .page-container {
+    animation: fadeInUp 0.8s ease;
+  }
+  
+  /* Títulos de módulos y clases */
+  .card-title, .card-header {
+    animation: fadeInUp 0.6s ease;
+  }
+  
+  /* Video animado */
+  .video-container {
+    animation: fadeInUp 1s ease;
+    transition: transform 0.3s ease;
+  }
+  
+  .video-container:hover {
+    transform: scale(1.01);
+  }
+  
+  /* Botón para ver módulos */
+  .btn-show-modules {
+    animation: fadeInUp 1s ease;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-show-modules:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Módulos individuales */
+  .module-item {
+    animation: fadeInUp 0.5s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .module-item:hover {
+    background-color: #f8f9fa;
+    transform: translateX(5px);
+    cursor: pointer;
+  }
+  
+  /* Comentarios */
+  .comment-sect, .comments-sect {
+    animation: fadeInUp 1s ease;
+  }
+  
+  /* Cada comentario */
+  .comment-item {
+    animation: fadeInUp 1.2s ease;
+    transition: background-color 0.3s ease;
+  }
+  
+  .comment-item:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Scroll animado en la lista de módulos */
+  .scroll-modules {
+    overflow-y: auto;
+    max-height: 80vh;
+    scroll-behavior: smooth;
+  }
+  
+  /* Offcanvas animado */
+  .offcanvas {
+    transition: transform 0.4s ease-in-out;
+  }
+  
+  /* Para móviles: botón de ver módulos */
+  @media (max-width: 992px) {
+    .btn-show-modules {
+      margin-bottom: 20px;
+    }
+  }
+  
   
   /* Fade in animation */
   @keyframes fadeIn {
