@@ -1,160 +1,140 @@
-/* Fade-in effect for the whole page */
 .fade-in {
-    animation: fadeIn 1.5s ease-in-out;
-  }
+  animation: fadeIn 1.5s ease-in-out;
+}
   
-  /* Zoom-in effect for the login box */
-  .zoom-in {
-    animation: zoomIn 0.8s ease-in-out;
-  }
-  
-  /* Slide-in for the title */
-  .slide-in-top {
-    animation: slideInTop 1s ease-out;
-  }
-  
-  /* Smooth transition on inputs */
-  .input-animated {
-    transition: all 0.3s ease;
-    border: 2px solid #ced4da;
-  }
-  
-  .input-animated:focus {
-    border-color: #4DBDEB;
-    box-shadow: 0 0 0 0.2rem rgba(77, 189, 235, 0.25);
-  }
-  
-  /* Button hover animation */
-  .btn-animated {
-    transition: all 0.3s ease;
-  }
-  
-  .btn-animated:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  }
+.zoom-in {
+  animation: zoomIn 0.8s ease-in-out;
+}
 
-  /* Animación general de aparición */
+.slide-in-top {
+  animation: slideInTop 1s ease-out;
+}
+
+.input-animated {
+  transition: all 0.3s ease;
+  border: 2px solid #ced4da;
+}
+
+.input-animated:focus {
+  border-color: #4DBDEB;
+  box-shadow: 0 0 0 0.2rem rgba(77, 189, 235, 0.25);
+}
+
+.btn-animated {
+  transition: all 0.3s ease;
+}
+
+.btn-animated:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
 @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-  
-  /* Contenedor principal que aparece al cargar */
-  .page-container {
-    animation: fadeInUp 0.8s ease;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Títulos de módulos y clases */
-  .card-title, .card-header {
-    animation: fadeInUp 0.6s ease;
-  }
-  
-  /* Video animado */
-  .video-container {
-    animation: fadeInUp 1s ease;
-    transition: transform 0.3s ease;
-  }
-  
-  .video-container:hover {
-    transform: scale(1.01);
-  }
-  
-  /* Botón para ver módulos */
+}
+
+.page-container {
+  animation: fadeInUp 0.8s ease;
+}
+
+.card-title, .card-header {
+  animation: fadeInUp 0.6s ease;
+}
+
+.video-container {
+  animation: fadeInUp 1s ease;
+  transition: transform 0.3s ease;
+}
+
+.video-container:hover {
+  transform: scale(1.01);
+}
+
+.btn-show-modules {
+  animation: fadeInUp 1s ease;
+  transition: all 0.3s ease;
+}
+
+.btn-show-modules:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.module-item {
+  animation: fadeInUp 0.5s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.module-item:hover {
+  background-color: #f8f9fa;
+  transform: translateX(5px);
+  cursor: pointer;
+}
+
+.comment-sect, .comments-sect {
+  animation: fadeInUp 1s ease;
+}
+
+.comment-item {
+  animation: fadeInUp 1.2s ease;
+  transition: background-color 0.3s ease;
+}
+
+.comment-item:hover {
+  background-color: #f1f1f1;
+}
+
+.scroll-modules {
+  overflow-y: auto;
+  max-height: 80vh;
+  scroll-behavior: smooth;
+}
+
+.offcanvas {
+  transition: transform 0.4s ease-in-out;
+}
+
+@media (max-width: 992px) {
   .btn-show-modules {
-    animation: fadeInUp 1s ease;
-    transition: all 0.3s ease;
+    margin-bottom: 20px;
   }
-  
-  .btn-show-modules:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  /* Módulos individuales */
-  .module-item {
-    animation: fadeInUp 0.5s ease;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+  to {
+    opacity: 1;
   }
-  
-  .module-item:hover {
-    background-color: #f8f9fa;
-    transform: translateX(5px);
-    cursor: pointer;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
   }
-  
-  /* Comentarios */
-  .comment-sect, .comments-sect {
-    animation: fadeInUp 1s ease;
+  to {
+    transform: scale(1);
+    opacity: 1;
   }
-  
-  /* Cada comentario */
-  .comment-item {
-    animation: fadeInUp 1.2s ease;
-    transition: background-color 0.3s ease;
+}
+
+@keyframes slideInTop {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
   }
-  
-  .comment-item:hover {
-    background-color: #f1f1f1;
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  /* Scroll animado en la lista de módulos */
-  .scroll-modules {
-    overflow-y: auto;
-    max-height: 80vh;
-    scroll-behavior: smooth;
-  }
-  
-  /* Offcanvas animado */
-  .offcanvas {
-    transition: transform 0.4s ease-in-out;
-  }
-  
-  /* Para móviles: botón de ver módulos */
-  @media (max-width: 992px) {
-    .btn-show-modules {
-      margin-bottom: 20px;
-    }
-  }
-  
-  
-  /* Fade in animation */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  /* Zoom in animation */
-  @keyframes zoomIn {
-    from {
-      transform: scale(0.9);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-  
-  /* Slide in from top */
-  @keyframes slideInTop {
-    from {
-      transform: translateY(-20px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  
+}

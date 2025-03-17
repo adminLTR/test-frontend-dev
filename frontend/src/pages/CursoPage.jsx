@@ -12,7 +12,6 @@ import {
     Col,
     Button,
     Offcanvas,
-    Badge,
     Card,
   } from "react-bootstrap";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 import { Form, Button, Card, Row, Col } from 'react-bootstrap';
 
-const InputComment = () => {
+export default function InputComment() {
   const [expanded, setExpanded] = useState(false);
   const [comment, setComment] = useState('');
 
@@ -58,5 +58,3 @@ const InputComment = () => {
     </Card>
   );
 };
-
-export default InputComment;

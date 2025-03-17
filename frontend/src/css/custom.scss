@@ -1,5 +1,5 @@
 
-// $primary: #ffe08c;
+// Redefinir variables de bootstrap
 $primary: #4DBDEB;
 $info: #81cec4;
 $warning: #DFEEEE;
@@ -8,6 +8,4 @@ $secondary: #a9a9a9;
 $accordion-bg: #fff;
 $accordion-button-active-bg: #ceebeb;
 
-// Import Bootstrap and its default variables
 @import "../../node_modules/bootstrap/scss/bootstrap";
-// @import "~bootstrap/scss/bootstrap";

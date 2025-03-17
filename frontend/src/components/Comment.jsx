@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, Image, Row, Col, Button, Badge } from "react-bootstrap";
 import { HandThumbsUp, ChatDots } from "react-bootstrap-icons";
 
@@ -19,7 +18,7 @@ export default function Comment({comment}) {
             />
           </Col>
 
-          {/* Content */}
+          {/* Contenido */}
           <Col>
             <div className="d-flex justify-content-between align-items-center">
               <strong>{comment.username}</strong>
@@ -30,7 +29,6 @@ export default function Comment({comment}) {
               {comment.commentText}
             </Card.Text>
 
-            {/* Actions */}
             <div className="d-flex gap-3 mt-3">
               <Button variant="outline-primary" size="sm" className="d-flex align-items-center gap-1">
                 <HandThumbsUp size={16} />
