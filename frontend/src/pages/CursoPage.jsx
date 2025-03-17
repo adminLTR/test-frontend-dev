@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getModulos } from "../js/api";
 import Module from "../components/Module";
+import { comments } from "../js/data";
+import Comment from "../components/Comment";
+import InputComment from "../components/InputComment";
+
 import {
     Container,
     Row,
@@ -28,6 +32,7 @@ export async function loader() {
 export default function CursoPage() {
   const modulos = useLoaderData();
   const [claseActual, setClaseActual] = useState( modulos[0].clases[0]);
+  const [moduloActual, setModuloActual] = useState(modulos[0])
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -41,12 +46,27 @@ export default function CursoPage() {
           {claseActual ? (
             <Card className="border-0 bg-white">
               <Card.Body>
-                <Card.Title className="text-primary fw-bold fs-4">
-                  {claseActual.titulo}
-                </Card.Title>
-                <Card.Text className="text-black">{claseActual.descripcion}</Card.Text>
+                <div className="mb-3 d-flex align-items-center gap-3">
+                  <i class="fa-solid fa-graduation-cap fs-1 text-primary"></i>
+                  <div>
+                    <Card.Title className="text-primary fw-bold fs-4">
+                      {moduloActual.titulo}
+                    </Card.Title>
+                    <Card.Text className="text-black">Clase: {claseActual.titulo}</Card.Text>
+                  </div>
+                </div>
                 <div className="ratio ratio-16x9 mb-3">
                   <video src={claseActual.video} controls className="rounded" />
+                </div>
+                <p>
+                  {claseActual.descripcion}
+                </p>
+                <div className="comment-sect">
+                  <p className="fs-4 fw-bold">Comentar</p>
+                  <InputComment/>
+                </div>
+                <div className="comments-sect">
+                  {comments.map(comment => <Comment comment={comment}/>)}
                 </div>
               </Card.Body>
             </Card>
@@ -73,6 +93,7 @@ export default function CursoPage() {
                 modulo={modulo} 
                 claseActual={claseActual} 
                 setClaseActual={setClaseActual}
+                setModuloActual={setModuloActual}
                 key={i}
                 index={i}
                 />
@@ -95,6 +116,7 @@ export default function CursoPage() {
             modulo={modulo} 
             claseActual={claseActual} 
             setClaseActual={setClaseActual}
+            setModuloActual={setModuloActual}
             key={i}
             index={i}
             />

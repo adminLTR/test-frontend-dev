@@ -2,6 +2,15 @@ html, body, #root {
     height: 100%;
 }
 
+* {
+    font-family: "Lexend", sans-serif;
+}
+
 #navbar {
-    background: linear-gradient(to bottom, rgb(235, 217, 167), white);
+    /* background: linear-gradient(to bottom, rgb(235, 217, 167), white); */
+    background-color: white;
+}
+
+.time-class {
+    font-size: 12px;
 }

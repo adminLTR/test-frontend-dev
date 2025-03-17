@@ -11,15 +11,16 @@ export default function Layout() {
   return (
     <Container fluid className="h-100 d-flex flex-column p-0">
       <header className="w-100">
-        <Navbar id="navbar" className="shadow-sm px-5">
+        <Navbar id="navbar" className="shadow-sm mb-2">
           <Container fluid>
             <Navbar.Brand href="/">
               <img
                 src="/logo.png"
                 alt="ParisCorp"
-                height="60"
-                className="d-inline-block align-middle rounded-circle"
+                height="40"
+                className="d-inline-block align-middle rounded-circle me-3"
               />
+              Paris Corp
             </Navbar.Brand>
 
             <Nav className="ms-auto align-items-center gap-3">
