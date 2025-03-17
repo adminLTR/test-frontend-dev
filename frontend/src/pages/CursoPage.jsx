@@ -34,17 +34,17 @@ export default function CursoPage() {
   const handleShow = () => setShow(true);
   
   return (
-    <Container fluid className="h-100 bg-info">
+    <Container fluid className="h-100 bg-white">
       <Row className="h-100">
         {/* Video Principal */}
-        <Col xs={12} lg={8} className="mb-4 p-0">
+        <Col xs={12} lg={8} xl={9} className="mb-4 p-0">
           {claseActual ? (
-            <Card className="border-0 bg-info">
+            <Card className="border-0 bg-white">
               <Card.Body>
-                <Card.Title className="text-primary text-center fw-bold fs-2">
+                <Card.Title className="text-primary fw-bold fs-4">
                   {claseActual.titulo}
                 </Card.Title>
-                <Card.Text className="text-center text-white">{claseActual.descripcion}</Card.Text>
+                <Card.Text className="text-black">{claseActual.descripcion}</Card.Text>
                 <div className="ratio ratio-16x9 mb-3">
                   <video src={claseActual.video} controls className="rounded" />
                 </div>
@@ -62,9 +62,11 @@ export default function CursoPage() {
         </Col>
 
         {/* Sidebar */}
-        <Col lg={4} className="d-none d-lg-block p-0">
-          <Card className="h-100 border-0 bg-dark">
-            <Card.Header className="text-white bg-warning text-center fs-3 mb-4 fw-bold">Módulos y Clases</Card.Header>
+        <Col lg={4} xl={3} className="d-none d-lg-block p-0">
+          <Card className="h-100 border-0 bg-white rounded-0">
+            <Card.Header className="text-primary bg-white fs-3 mb-4 fw-bold">
+              Contenido
+            </Card.Header>
             <Card.Body className="overflow-auto text-white" style={{ maxHeight: "80vh" }}>
               {modulos.map((modulo, i) => (
                 <Module 

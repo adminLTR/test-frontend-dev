@@ -1,10 +1,11 @@
 
-$primary: #f9c237;
-$info: #525252;
-$warning: #111214;
+// $primary: #ffe08c;
+$primary: #4DBDEB;
+$info: #ffe08c;
+$warning: #DFEEEE;
 
-$accordion-bg: $primary;
-$accordion-button-active-bg: $primary;
+$accordion-bg: #fff;
+$accordion-button-active-bg: #ceebeb;
 
 // Import Bootstrap and its default variables
 @import "../../node_modules/bootstrap/scss/bootstrap";

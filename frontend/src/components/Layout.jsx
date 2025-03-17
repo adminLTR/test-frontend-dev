@@ -11,20 +11,20 @@ export default function Layout() {
   return (
     <Container fluid className="h-100 d-flex flex-column p-0">
       <header className="w-100">
-        <Navbar bg="primary" className="shadow-sm px-5">
+        <Navbar bg="info" className="shadow-sm px-5">
           <Container fluid>
             <Navbar.Brand href="/">
               <img
                 src="/logo.png"
                 alt="ParisCorp"
-                height="80"
+                height="60"
                 className="d-inline-block align-middle rounded-circle"
               />
             </Navbar.Brand>
 
             <Nav className="ms-auto align-items-center gap-3">
               <div role="button" className="position-relative">
-                <BellFill size={22} />
+                <BellFill color="black" size={22} />
                 <Badge
                   bg="danger"
                   pill
