@@ -11,7 +11,7 @@ export default function Layout() {
   return (
     <Container fluid className="h-100 d-flex flex-column p-0">
       <header className="w-100">
-        <Navbar bg="info" className="shadow-sm px-5">
+        <Navbar id="navbar" className="shadow-sm px-5">
           <Container fluid>
             <Navbar.Brand href="/">
               <img
@@ -39,7 +39,7 @@ export default function Layout() {
                 <Dropdown.Toggle
                   variant="link"
                   id="dropdown-avatar"
-                  className="p-0 border-0"
+                  className="p-0 border-0 text-black"
                 >
                   <Image
                     src="/avatar.png" 

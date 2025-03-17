@@ -1,3 +1,7 @@
 html, body, #root {
     height: 100%;
 }
+
+#navbar {
+    background: linear-gradient(to bottom, rgb(235, 217, 167), white);
+}
