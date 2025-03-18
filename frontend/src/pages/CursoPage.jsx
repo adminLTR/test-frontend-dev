@@ -44,6 +44,13 @@ export default function CursoPage() {
     }
   }, [modulos])
 
+  const getEmbedUrl = (url) => {
+    if (url.includes("watch?v=")) {
+      return url.replace("watch?v=", "embed/");
+    }
+    return url;
+  };
+
   return (
     (claseActual && <Container fluid className="h-100 bg-white page-container">
       <Row>
@@ -62,7 +69,15 @@ export default function CursoPage() {
                   </div>
                 </div>
                 <div className="ratio ratio-16x9 mb-3 video-container">
-                  <video src={claseActual.video} controls className="rounded" />
+                  {/* <video src={claseActual.video} controls className="rounded" /> */}
+                  <iframe 
+                    className="rounded" 
+                    src={getEmbedUrl(claseActual.video)} 
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerPolicy="strict-origin-when-cross-origin" 
+                    allowFullScreen
+                  ></iframe>
                 </div>
                 <p>{claseActual.descripcion}</p>
               </Card.Body>
