@@ -1,3 +1,7 @@
+# CREDENCIALES
+* User: usuario
+* Password: contraseña
+  
 # API para Gestión de Módulos de Cursos
 ## Realiza un fork de este repositorio y al culminar presenta un Pull request, si tienes alguna duda o consulta puedes enviarla por medio de un draft
 
